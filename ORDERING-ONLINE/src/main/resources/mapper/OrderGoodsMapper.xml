@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cy.dingcan.vo.OrderGoodsDao">
+
+
+	<select id="findGoodIds" resultType="int">
+		select goods_id from
+		t_order_goods
+		where order_id=#{id}
+	</select>
+
+	<select id="findGoodById" resultType="good">
+		select *
+		from goods
+		where id in
+		(
+		select goods_id
+		from t_order_goods
+		where order_id=#{id}
+		)
+	</select>
+
+	<update id="insertObject">
+		insert into t_order_goods values
+		<foreach collection="array" item="goodId" separator=",">
+			(null,#{orderId},#{goodId})
+		</foreach>
+	</update>
+	<update id="deleteObject">
+		delete from t_order_goods
+		where order_id=#{orderId}
+	</update>
+</mapper>

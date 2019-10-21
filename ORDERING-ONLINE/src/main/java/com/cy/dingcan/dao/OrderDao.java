@@ -1,0 +1,25 @@
+package com.cy.dingcan.dao;
+
+
+import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
+
+import com.cy.dingcan.entity.Orders;
+import com.cy.dingcan.vo.OrderFindVo;
+
+@Repository
+@Mapper
+public interface OrderDao {
+	public List<OrderFindVo>findObjectByUserId(@Param("id")Integer id,
+			@Param("startIndex") Integer startIndex,
+			@Param("pageSize") Integer pageSize);
+	int getRows(Integer id);
+	
+	int insertObject(Orders order);
+	int deleteObject(Integer id);
+	int updateObject(Orders order);
+	OrderFindVo findObjectById(Integer id);
+}
