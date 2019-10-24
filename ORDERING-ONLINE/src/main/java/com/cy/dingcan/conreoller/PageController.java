@@ -5,15 +5,15 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("")
+@RequestMapping("/")
 public class PageController {
 
-    @RequestMapping("/doPageIndexUI")
+    @RequestMapping("doPageIndexUI")
     public String doPageIndexUI(){
         return "index";
     }
-    @RequestMapping("{modudle}/{page}")
-    public String doPageUI(@PathVariable String page){
-        return "page";
+    @RequestMapping("{moudle}/{page}")
+    public String doPageUI(@PathVariable String moudle,@PathVariable String page){
+        return  moudle + "/" + page;
     }
 }
