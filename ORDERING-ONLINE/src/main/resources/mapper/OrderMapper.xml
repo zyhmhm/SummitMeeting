@@ -22,12 +22,13 @@
 		<result property="payTime" column="pay_time"/>
 		<result property="price" column="price"/>
 		<result property="contactName" column="contact_name"/>
-		<result property="contactTell" column="conract_tell"/>
+		<result property="contactTell" column="contact_tell"/>
 		<result property="contactAddr" column="contact_addr"/>
-		<association property="userName" select="com.cy.dingcan.dao.UserDao.doFindObjectById" column="user_id"></association>
-		<association property="shopName" select="com.cy.dingcan.entity.Shop.doFindById" column="shop_id"></association>
-		<collection property="goodIds" select="com.cy.dingcan.vo.OrderGoodsDao.findGoodIds" column="id"></collection>
-		<collection property="goods" select="com.cy.dingcan.vo.OrderGoodsDao.findGoodById" column="id"></collection>
+		<result property="remarks" column="remarks"/>
+		<association property="userName" select="com.cy.dingcan.dao.UserDao.doFindObjectById" column="user_id"/>
+		<association property="shopName" select="com.cy.dingcan.dao.ShopDao.doFindById" column="shop_id"/>
+		<collection property="goodIds" select="com.cy.dingcan.dao.OrderGoodsDao.findGoodIds" column="id"/>
+		<collection property="goods" select="com.cy.dingcan.dao.OrderGoodsDao.findGoodById" column="id"/>
 	</resultMap>
 	<!-- 根据用户的id查询相应的订单信息 -->
 	<select id="findObjectByUserId" resultMap="orderVo">
@@ -38,6 +39,10 @@
 			</if>
 		</where>
 		limit #{startIndex},#{pageSize}
+	</select>
+	<!--查询所有不分页-->
+	<select id="doFindObjects" resultMap="orderVo">
+		select * from t_order
 	</select>
 	<!-- 根据用户名查询符合商品的数量 -->
 	<select id="getRows" resultType="int">
@@ -57,7 +62,7 @@
 	</update>
 	<update id="updateObject">
 		update t_orders set shop_id=#{shopId},user_id=#{userId},statu=#{statu},create_time=#{createTime},pay_time=#{payTime},
-		price=#{price},contact_name=#{contactName},contact_tell=#{contactTell},contact_addr=#{contactAddr}
+		price=#{price},contact_name=#{contactName},contact_tell=#{contactTell},contact_addr=#{contactAddr},remarks=#{remarks}
 		where id=#{id}
 	</update>
 	<select id="findObjectById" resultMap="orderVo">

@@ -1,12 +1,11 @@
 package com.cy.dingcan.vo;
 
+import com.cy.dingcan.entity.Good;
+import lombok.Data;
+
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
-
-import com.cy.dingcan.entity.Good;
-
-import lombok.Data;
 
 @Data
 public class OrderFindVo implements Serializable{
@@ -35,4 +34,6 @@ public class OrderFindVo implements Serializable{
 	private List<Integer> goodIds;
 	//商品的信息
 	private List<Good> goods;
+	//订单备注
+	private String remarks;
 }

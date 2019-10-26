@@ -1,10 +1,11 @@
 package com.cy.dingcan.service;
 
 
-
 import com.cy.common.vo.PageObject;
 import com.cy.dingcan.entity.Orders;
 import com.cy.dingcan.vo.OrderFindVo;
+
+import java.util.List;
 
 public interface OrderService {
 
@@ -13,4 +14,5 @@ public interface OrderService {
 	int doDeleteObject(Integer orderId);
 	int doUpdateObject(Orders order,Integer[] goodIds);
 	OrderFindVo doFindObjectById(Integer id);
+	List<OrderFindVo> doFindObjects();
 }

@@ -1,11 +1,5 @@
 package com.cy.dingcan.service.impl;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.annotation.Order;
-import org.springframework.stereotype.Service;
-
 import com.cy.common.exception.ServiceException;
 import com.cy.common.vo.PageObject;
 import com.cy.dingcan.dao.GoodDao;
@@ -15,6 +9,10 @@ import com.cy.dingcan.dao.UserDao;
 import com.cy.dingcan.entity.Orders;
 import com.cy.dingcan.service.OrderService;
 import com.cy.dingcan.vo.OrderFindVo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class OrderServiceImpl implements OrderService{
@@ -58,9 +56,10 @@ public class OrderServiceImpl implements OrderService{
 	}
 	@Override
 	public int doInsertObject(Orders order,Integer[] goodIds) {
-		if(order==null||order.getId()==null)throw new ServiceException("请传入一个订单信息");
-		if(goodIds==null||goodIds.length==0) throw new ServiceException("请选择商品");
-		if(order==null||order.getContactAddr()==null) throw new ServiceException("请输入订单的地址");
+		if(order==null || order.getId()==null) throw new ServiceException("请传入一个订单信息");
+
+		if(goodIds.length==0) throw new ServiceException("请选择商品");
+		if(order.getContactAddr()==null) throw new ServiceException("请输入订单的地址");
 		if(order.getContactName()==null) throw new ServiceException("请输入联系人姓名");
 		if(order.getContactTell()==null) throw new ServiceException("请输入联系人电话");
 		int row;
@@ -74,7 +73,8 @@ public class OrderServiceImpl implements OrderService{
 	}
 	@Override
 	public int doDeleteObject(Integer orderId) {
-		if(orderId==null||orderId<=0) throw new ServiceException("请选中一个订单");
+		if(orderId==null || orderId<=0)
+			throw new ServiceException("请选中一个订单");
 		orderGoodsDao.deleteObject(orderId);
 		int rows = orderDao.deleteObject(orderId);
 		if(rows==0) throw new ServiceException("该订单信息已经不存在");
@@ -105,8 +105,10 @@ public class OrderServiceImpl implements OrderService{
 		return order;
 	}
 
-
-
+	@Override
+	public List<OrderFindVo> doFindObjects() {
+		return orderDao.doFindObjects();
+	}
 
 
 }

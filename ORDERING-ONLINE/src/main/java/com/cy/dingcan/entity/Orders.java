@@ -1,9 +1,9 @@
 package com.cy.dingcan.entity;
 
+import lombok.Data;
+
 import java.io.Serializable;
 import java.util.Date;
-
-import lombok.Data;
 @Data
 public class Orders implements Serializable{
 
@@ -28,5 +28,7 @@ public class Orders implements Serializable{
 	private String contactTell;
 	//联系人地址
 	private String contactAddr;
+	//订单备注
+	private String remarks;
 	
 }

@@ -2,10 +2,10 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.cy.dingcan.entity.Shop">
+<mapper namespace="com.cy.dingcan.dao.ShopDao">
 
 	<select id="doFindById" resultType="string">
-		select name from t_shop
+		select shopname from t_shop
 		where id=#{id}
 	</select>
 </mapper>

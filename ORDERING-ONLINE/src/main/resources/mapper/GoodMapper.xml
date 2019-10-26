@@ -11,5 +11,10 @@
 			</foreach>
 		</where>
 	</select>
+	<resultMap id="goodsVo" type="map">
+	</resultMap>
+	<select id="findObjects" resultType="com.cy.dingcan.entity.Good">
+		select * from goods
+	</select>
 
 </mapper>

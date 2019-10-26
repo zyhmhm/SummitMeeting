@@ -1,14 +1,13 @@
 package com.cy.dingcan.dao;
 
 
-import java.util.List;
-
+import com.cy.dingcan.entity.Orders;
+import com.cy.dingcan.vo.OrderFindVo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
-import com.cy.dingcan.entity.Orders;
-import com.cy.dingcan.vo.OrderFindVo;
+import java.util.List;
 
 @Repository
 @Mapper
@@ -22,4 +21,5 @@ public interface OrderDao {
 	int deleteObject(Integer id);
 	int updateObject(Orders order);
 	OrderFindVo findObjectById(Integer id);
+	List<OrderFindVo> doFindObjects();
 }
