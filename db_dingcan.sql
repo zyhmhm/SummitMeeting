@@ -10,8 +10,11 @@ Target Server Type    : MYSQL
 Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2019-10-21 20:17:25
+Date: 2019-10-22 14:04:15
 */
+SET NAMES utf8;
+CREATE DATABASE IF NOT EXISTS db_dingcan;
+USE db_dingcan;
 
 SET FOREIGN_KEY_CHECKS=0;
 
