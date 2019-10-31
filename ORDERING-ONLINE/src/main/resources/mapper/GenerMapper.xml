@@ -14,7 +14,10 @@
             </foreach>
         </where>
     </update>
-    <update id="insetr">
+    <update id="insertObject">
         insert into t_gener values(null,#{generName})
     </update>
+    <select id="findGenerNameById">
+        select gener_name from t_gener where id=#{id}
+    </select>
 </mapper>

@@ -8,4 +8,7 @@
 		select shopname from t_shop
 		where id=#{id}
 	</select>
+	<select id="findObjects" resultType="map">
+		select id,shopname from t_shop;
+	</select>
 </mapper>

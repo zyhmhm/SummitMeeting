@@ -1,7 +1,7 @@
 package com.cy.dingcan.dao;
 
 
-import com.cy.dingcan.entity.Good;
+import com.cy.dingcan.vo.GoodFindVo;
 import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Repository;
 
@@ -11,5 +11,5 @@ import java.util.List;
 @Mapper
 public interface GoodDao {
 	//List<Good> findObjectsByIds(Integer[] ids);
-	List<Good> findObjects();
+	List<GoodFindVo> findObjects();
 }
