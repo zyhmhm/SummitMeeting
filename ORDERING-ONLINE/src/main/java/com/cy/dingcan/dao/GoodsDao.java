@@ -9,7 +9,7 @@ import java.util.List;
 
 @Repository
 @Mapper
-public interface GoodDao {
+public interface GoodsDao {
 	//List<Good> findObjectsByIds(Integer[] ids);
 	List<GoodFindVo> findObjects();
 }

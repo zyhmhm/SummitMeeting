@@ -20,6 +20,6 @@ public interface OrderDao {
 	int insertObject(Orders order);
 	int deleteObject(Integer id);
 	int updateObject(Orders order);
-	OrderFindVo findObjectById(Integer id);
+	Orders findObjectById(Integer id);
 	List<OrderFindVo> doFindObjects();
 }

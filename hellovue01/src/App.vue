@@ -19,11 +19,11 @@
               <template slot="title">
                 <i class="el-icon-s-operation"></i>数据管理
               </template>
-              <el-menu-item index="1-1">菜单管理</el-menu-item>
-              <el-menu-item index="1-2">类别管理</el-menu-item>
-              <el-menu-item index="/order/order_list">用户管理</el-menu-item>
+              <el-menu-item index="/goods/goods_list">商品管理</el-menu-item>
+              <el-menu-item index="/gener/gener_list">类别管理</el-menu-item>
+              <el-menu-item index="1-3">用户管理</el-menu-item>
               <el-menu-item index="1-4">店铺管理</el-menu-item>
-              <el-menu-item index="1-5">订单管理</el-menu-item>
+              <el-menu-item index="/order/order_list">订单管理</el-menu-item>
             </el-submenu>
             <el-submenu index="2">
               <template slot="title">

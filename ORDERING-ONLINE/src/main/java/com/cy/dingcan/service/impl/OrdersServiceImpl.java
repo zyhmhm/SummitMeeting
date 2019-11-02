@@ -2,12 +2,12 @@ package com.cy.dingcan.service.impl;
 
 import com.cy.common.exception.ServiceException;
 import com.cy.common.vo.PageObject;
-import com.cy.dingcan.dao.GoodDao;
+import com.cy.dingcan.dao.GoodsDao;
 import com.cy.dingcan.dao.OrderDao;
 import com.cy.dingcan.dao.OrderGoodsDao;
 import com.cy.dingcan.dao.UserDao;
 import com.cy.dingcan.entity.Orders;
-import com.cy.dingcan.service.OrderService;
+import com.cy.dingcan.service.OrdersService;
 import com.cy.dingcan.vo.OrderFindVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class OrderServiceImpl implements OrderService{
+public class OrdersServiceImpl implements OrdersService {
 
 	@Autowired
 	private OrderDao orderDao;
@@ -24,7 +24,7 @@ public class OrderServiceImpl implements OrderService{
 	@Autowired
 	private OrderGoodsDao orderGoodsDao;
 	@Autowired
-	private GoodDao goodDao;
+	private GoodsDao goodsDao;
 
 	@Override
 	public PageObject<OrderFindVo> doFindObjectByUserId(String username,Integer pageCurrent) {
@@ -97,9 +97,9 @@ public class OrderServiceImpl implements OrderService{
 		return rows;
 	}
 	@Override
-	public OrderFindVo doFindObjectById(Integer id) {
+	public Orders doFindObjectById(Integer id) {
 		if(id==null||id<1) throw new IllegalArgumentException("请选择一个订单");
-		OrderFindVo order = orderDao.findObjectById(id);
+		Orders order = orderDao.findObjectById(id);
 		if(order==null) throw new ServiceException("该订单信息已经不存在");
 		
 		return order;

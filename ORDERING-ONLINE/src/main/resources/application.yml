@@ -17,7 +17,10 @@ spring:
     suffix: .html
   aop:
     proxy-target-class: true
-    
+  jackson:
+    date-format: yyyy/MM/dd HH:mm:ss
+    time-zone: GMT+8
+
 #mybatis
 mybatis:
   configuration:

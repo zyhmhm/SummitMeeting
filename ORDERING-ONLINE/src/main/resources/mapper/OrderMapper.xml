@@ -65,7 +65,12 @@
 		price=#{price},contact_name=#{contactName},contact_tell=#{contactTell},contact_addr=#{contactAddr},remarks=#{remarks}
 		where id=#{id}
 	</update>
-	<select id="findObjectById" resultMap="orderVo">
+	<!--这是查询一个的全部信息，是已经将id转化成名字之后的结果-->
+	<!--<select id="findObjectById" resultMap="orderVo">
+		select * from t_order
+		where id=#{id}
+	</select>-->
+	<select id="findObjectById" resultType="orders">
 		select * from t_order
 		where id=#{id}
 	</select>

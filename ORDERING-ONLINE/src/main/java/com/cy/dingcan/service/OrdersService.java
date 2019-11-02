@@ -7,12 +7,12 @@ import com.cy.dingcan.vo.OrderFindVo;
 
 import java.util.List;
 
-public interface OrderService {
+public interface OrdersService {
 
 	PageObject<OrderFindVo> doFindObjectByUserId(String username,Integer pageCurrent);
 	int doInsertObject(Orders order,Integer[] goodIds);
 	int doDeleteObject(Integer orderId);
 	int doUpdateObject(Orders order,Integer[] goodIds);
-	OrderFindVo doFindObjectById(Integer id);
+	Orders doFindObjectById(Integer id);
 	List<OrderFindVo> doFindObjects();
 }

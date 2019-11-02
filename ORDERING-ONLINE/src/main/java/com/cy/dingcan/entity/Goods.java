@@ -3,7 +3,7 @@ package com.cy.dingcan.entity;
 import lombok.Data;
 
 @Data
-public class Good {
+public class Goods {
 	//商品id
 	private Integer id;
 	//商品名称
@@ -18,6 +18,8 @@ public class Good {
 	private String imageUrl;
 	//商品被购买数量
 	private Integer number;
+	//商品状态，是否下架
+	private Integer statue;
 	//商品类别id
 	private Integer generId;
 	//商品归属的店铺id

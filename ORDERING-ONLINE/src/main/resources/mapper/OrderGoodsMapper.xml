@@ -11,9 +11,9 @@
 		where order_id=#{id}
 	</select>
 
-	<select id="findGoodById" resultType="good">
+	<select id="findGoodById" resultType="goods">
 		select *
-		from goods
+		from t_goods
 		where id in
 		(
 		select goods_id
