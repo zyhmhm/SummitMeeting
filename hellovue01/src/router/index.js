@@ -5,6 +5,7 @@ import orderList from '../pages/order_list.vue'
 import orderEdit from '../pages/order_edit.vue'
 import generList from '../pages/gener_list.vue'
 import goodsList from '../pages/goods_list.vue'
+import goodsEdit from '../pages/goods_edit.vue'
 
 
 //防止多次点击同一个界面报错
@@ -45,6 +46,12 @@ export default new Router({
       path: '/goods/goods_list',
       name: 'goodsList',
       component: goodsList
+    },
+    //商品编辑页面
+    {
+      path: '/goods/goods_edit',
+      name: 'goodsEdit',
+      component: goodsEdit
     }
   ]
 })

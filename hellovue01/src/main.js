@@ -7,6 +7,7 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import axios from 'axios';
 import qs from 'qs'; //用来解决vue中post请求
+import $ from 'jquery'
 
 Vue.prototype.$qs = qs;
 Vue.prototype.$axios = axios;

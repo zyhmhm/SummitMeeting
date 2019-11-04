@@ -101,6 +101,25 @@
       valueChange(cvalue){
         this.value = cvalue;
         alert(this.value);
+      },
+      doHandleEdit(){
+        //处理参数
+         //var id = this.$qs.stringify({"orderId":this.param.id});
+         //发起一个get请求
+         this.$http.get("/order/doFindObjectById",
+         {params:{orderId: this.param.id}})
+         .then(res =>{
+           //处理返回的结果
+           console.log(res.data);
+           this.form = res.data.data;
+        });
+        //获取所有的店铺的信息（暂时只有id和店铺名称。）
+        this.$http.get("/shop/doFindObjects").then(res =>{
+          //console.log(res.data.data);
+          this.shops = this.beforeDataProcess(res.data.data);
+          this.value = this.form.shopId;
+          console.log(this.form.shopId);
+        });
       }
     },
     /*vue的钩子函数,组件实例创建完成，属性已经绑定，但是都没还未生成，$el属性还不存在
@@ -113,24 +132,7 @@
       //console.log(this.param.id);
       //flag表示是增加还是编辑，1表示编辑
       if(this.param.flag==1){
-        //处理参数
-        //var id = this.$qs.stringify({"orderId":this.param.id});
-        //发起一个get请求
-        this.$http.get("/order/doFindObjectById",
-        {params:{orderId: this.param.id}})
-        .then(res =>{
-          //处理返回的结果
-          console.log(res.data);
-          this.form = res.data.data;
-       });
-       //获取所有的店铺的信息（暂时只有id和店铺名称。）
-       this.$http.get("/shop/doFindObjects").then(res =>{
-         //console.log(res.data.data);
-         this.shops = this.beforeDataProcess(res.data.data);
-         this.value = this.form.shopId;
-         console.log(this.form.shopId);
-       });
-
+        doHandleEdit();
       }
     }
   }

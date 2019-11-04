@@ -42,7 +42,7 @@
           "id": row.id,
           "flag": 1
         };
-        /* 按钮点击加载路由*/
+        /* 按钮点击加载路由 path 传参数刷新之后id还在 query更像get,会拼接而params不会拼接在url*/
         this.$router.push({path: "/order/order_edit", query:{param:param}});
       },
       handleDelete(index, row) {

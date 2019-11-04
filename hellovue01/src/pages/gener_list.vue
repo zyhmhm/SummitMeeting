@@ -23,9 +23,9 @@
         <el-button type="primary" icon="el-icon-arrow-left" @click="toLastPage">上一页</el-button>
         <el-button type="primary" @click="toNextPage">下一页<i class="el-icon-arrow-right el-icon--right"></i></el-button>
         <el-button type="primary" @click="toOverPage">尾页</el-button>
-        <el-button type="primary" disabled="true" :rowCount="rowCount">总条数{{rowCount}}</el-button>
-        <el-button type="primary" disabled="true" :pageCount="pageCount">总页数{{pageCount}}</el-button>
-        <el-button type="primary" disabled="true" :pageCurrent="pageCurrent">当前页{{pageCurrent}}</el-button>
+        <el-button type="primary" disabled :rowCount="rowCount">总条数{{rowCount}}</el-button>
+        <el-button type="primary" disabled :pageCount="pageCount">总页数{{pageCount}}</el-button>
+        <el-button type="primary" disabled :pageCurrent="pageCurrent">当前页{{pageCurrent}}</el-button>
       </el-button-group>
     </div>
   </div>
@@ -127,7 +127,7 @@
       },
       //封装好得到数据的请求
       getObjectToPage(){
-        
+
       }
     },
     //在页面加载完之后发起异步请求加载数据
